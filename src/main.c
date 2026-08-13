@@ -45,17 +45,23 @@ int main(void) {
     strcat(existing_filename, p_entry->d_name);
 
     if (file_has_content(existing_filename) == false) {
-      fprintf(stderr,
-              "gen: error: file %s without content\n\nRun 'gen --clean' for "
-              "remove all empty files\nSee 'gen --help'\n",
-              existing_filename);
+      fprintf(
+          stderr,
+          "gen: error: file %s without content\n\nRun 'gen --clean' for remove "
+          "all empty files\nSee 'gen --help'\n",
+          existing_filename
+      );
       return EXIT_FAILURE;
     };
   }
 
   time(&current_time);
-  strftime(formated_time, sizeof(formated_time), "%Y-%m-%d_%H-%M-%S",
-           localtime(&current_time));
+  strftime(
+      formated_time,
+      sizeof(formated_time),
+      "%Y-%m-%d_%H-%M-%S",
+      localtime(&current_time)
+  );
 
   strcpy(filename, DIR_NAME);
   strcat(filename, "/");
